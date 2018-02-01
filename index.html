@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lisa Marie's Neighborhood Map</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- search box -->
+    <div class="search-box">
+        <input class="search-input" id="search-input" placeholder="Search Locations" data-bind="textInput: searchTerm, valueUpdate: 'afterkeydown'" />
+    </div>
+
+    <div class="main">
+
+        <!-- locations -->
+        <div class="pinned-places">
+            <div class="list" id="list">
+                <ul class="returns" id="returns" data-bind="foreach: filteredList">
+                    <li class="point" id="point" data-bind="text: name, click: bounce"></li>
+                </ul>
+            </div>
+        </div>
+        <!-- map -->
+        <div class="map" id="map" style="position: relative; overflow: hidden;"></div>
+
+    </div>
+
+
+    <script type="text/javascript" src="js/knockout-3.4.2.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIp_RVeSuk0Hxl6aAL294zZ4Y8YoVc86I&callback=startApp&libraries=places" onerror="googleError()"></script>
+
+  <!-- scripts are ALWAYS placed prior to the body closing -->
+
+</body>
+
+</html>
