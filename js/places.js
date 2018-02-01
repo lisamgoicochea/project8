@@ -61,7 +61,9 @@ var Location = function (data) {
         self.street = results.location.formattedAddress[0];
         self.city = results.location.formattedAddress[1];
 
-    }).fail(function () {
+    });
+
+    .fail(function () {
         alert("There was an error with the Foursquare API call. Please refresh the page.");
     });
     // Infowindow including street and city info
@@ -160,4 +162,4 @@ function startApp() {
 // function will run to alert user of error loading map
 function googleError() {
     alert("Google Maps failed to load the requested page. Please refresh the page.");
-}
+};
