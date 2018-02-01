@@ -61,15 +61,13 @@ var Location = function (data) {
         self.street = results.location.formattedAddress[0];
         self.city = results.location.formattedAddress[1];
 
-    });
-
-    .fail(function () {
+    }).fail(function () {
         alert("There was an error with the Foursquare API call. Please refresh the page.");
     });
     // Infowindow including street and city info
     this.contentString = '<div class="info-window-content"><div class="title"><b>' + data.name + "</b></div>" +
         '<div class="content">' + self.street + "</div>" +
-        '<div class="content">' + self.city + "</div>"
+        '<div class="content">' + self.city + "</div>";
     this.infoWindow = new google.maps.InfoWindow({
         content: self.contentString
     });
@@ -162,4 +160,4 @@ function startApp() {
 // function will run to alert user of error loading map
 function googleError() {
     alert("Google Maps failed to load the requested page. Please refresh the page.");
-};
+}
