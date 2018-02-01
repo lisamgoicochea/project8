@@ -4,13 +4,13 @@ var myLocations = [{
         lat: 40.779679,
         long: -73.921443
 
-        },
+},
     {
         name: "Cheesecake Factory",
         lat: 40.734364,
         long: -73.868982
 
-    },
+},
     {
         name: "Frank Sinatra School of the Arts",
         lat: 40.756341,
@@ -22,14 +22,18 @@ var myLocations = [{
         long: -73.958695
 },
     {
-        name: 'Pio Pio',
+        name: "Museum of Moving Image",
+        lat: 40.756359,
+        long: -73.923930
+
+},
+    {
+        name: "Pio Pio",
         lat: 40.726286,
         long: -73.870681
 }
 ];
 
-
-// strict mode Global variables
 var map;
 var clientID;
 var clientSecret;
@@ -48,7 +52,7 @@ var Location = function (data) {
         content: self.contentString
     });
 
-    // Foursquare api Authenticatification using the clientid I registered with.
+    // Foursquare api keys
     var foursquareURL = 'https://api.foursquare.com/v2/venues/search?ll=' + this.lat + ',' + this.long + '&client_id=' + clientID + '&client_secret=' + clientSecret + '&v=20171214 ' + '&query=' + this.name;
 
     $.getJSON(foursquareURL).done(function (data) {
@@ -60,7 +64,7 @@ var Location = function (data) {
     }).fail(function () {
         alert("There was an error with the Foursquare API call. Please refresh the page.");
     });
-    // Infowindow with street and city information
+    // Infowindow including street and city info
     this.contentString = '<div class="info-window-content"><div class="title"><b>' + data.name + "</b></div>" +
         '<div class="content">' + self.street + "</div>" +
         '<div class="content">' + self.city + "</div>"
@@ -68,7 +72,7 @@ var Location = function (data) {
         content: self.contentString
     });
 
-    // Setting markers on Map
+    // placing markers on map
     this.marker = new google.maps.Marker({
         position: new google.maps.LatLng(data.lat, data.long),
         map: map,
@@ -94,7 +98,7 @@ var Location = function (data) {
 
         self.infoWindow.open(map, this);
 
-        // this gives the bouncing affect of the pointer on the map.
+        // bouncing effect of pointer map
         self.marker.setAnimation(google.maps.Animation.BOUNCE);
         setTimeout(function () {
             self.marker.setAnimation(null);
@@ -112,23 +116,23 @@ function AppViewModel() {
     this.searchTerm = ko.observable("");
 
     this.locationList = ko.observableArray([]);
-    //This is where the map will originate
+    // center of map
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 15,
+        zoom: 13,
         center: {
-            lat: 40.687074,
-            lng: -73.976294
+            lat: 40.754920,
+            lng: -73.911046
         }
     });
 
-    // unique foursquare api keys
-    clientID = "LHIMRI5U4GYF23SHGQKRN2FPLXDNV20K0S0PWZNW12ZVCD3S";
-    clientSecret = "K35I1X0SHF5KTNLVDS5MY1SRKCTGUON23N2EQUIYEZDR31ZQ";
+    // sandbox api keys for foursquare
+    clientID = "BV2OKB2MZGH34QUZT2YCQLWLPY2RCNGPDQZYANDWR0MWUJTM";
+    clientSecret = "RMMUEA230Z2POLUTYCZWSFWIQJO0KMJEQ1TZSEZIHQH2IYH2";
 
     myLocations.forEach(function (locationItem) {
         self.locationList.push(new Location(locationItem));
     });
-    // search list filter
+    // search locations filter
     this.filteredList = ko.computed(function () {
         var filter = self.searchTerm().toLowerCase();
         if (!filter) {
@@ -153,7 +157,7 @@ function AppViewModel() {
 function startApp() {
     ko.applyBindings(new AppViewModel());
 }
-// this function will run in an effort to alert the user if there's an error loading my map
+// function will run to alert user of error loading map
 function googleError() {
     alert("Google Maps failed to load the requested page. Please refresh the page.");
 }
