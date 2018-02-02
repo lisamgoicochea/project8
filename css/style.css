@@ -14,7 +14,7 @@ body {
 // list
 
 .list {
-  order: 4;
+  order: 1;
   background-color: #f48942; // orange
 }
 
@@ -22,6 +22,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: #f48942; // orange
+  color: ##f7b262; // another shade of orange
 }
 
 .point {
@@ -39,7 +40,7 @@ body {
 .map {
   order: 4;
   background-color: #f79e62; // light orange
-  height: 44vh;
+  height: 77vh;
   width: 100%;
 }
 

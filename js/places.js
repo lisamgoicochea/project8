@@ -67,7 +67,7 @@ var Location = function (data) {
     // Infowindow including street and city info
     this.contentString = '<div class="info-window-content"><div class="title"><b>' + data.name + "</b></div>" +
         '<div class="content">' + self.street + "</div>" +
-        '<div class="content">' + self.city + "</div>";
+        '<div class="content">' + self.city + "</div>"
     this.infoWindow = new google.maps.InfoWindow({
         content: self.contentString
     });
