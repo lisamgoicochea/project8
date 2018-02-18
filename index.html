@@ -12,7 +12,7 @@
 <body>
     <!-- search box -->
     <div class="search-box">
-        <input class="search-input" id="search-input" placeholder="Search Locations" data-bind="textInput: searchTerm, valueUpdate: 'afterkeydown'" />
+        <input class="search-input" id="search-input" placeholder="Where would you like to go....????" data-bind="textInput: searchTerm, valueUpdate: 'afterkeydown'" />
     </div>
 
     <div class="main">
@@ -26,7 +26,7 @@
             </div>
         </div>
         <!-- map -->
-        <div class="map" id="map" style="position: relative; overflow: hidden;"></div>
+        <div class="map" id="map"></div>
 
     </div>
 
@@ -40,8 +40,8 @@
 
     <script type="text/javascript" src="js/knockout-3.4.2.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="js/places.js"></script>
-    <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIp_RVeSuk0Hxl6aAL294zZ4Y8YoVc86I&callback=startApp&libraries=places" onerror="googleError()"></script>
+    <script src="js/locations.js"></script>
+    <script async defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIp_RVeSuk0Hxl6aAL294zZ4Y8YoVc86I&callback=startApp&libraries=places" onerror="mapError()"></script>
 
   <!-- scripts are ALWAYS placed prior to the body closing -->
 
