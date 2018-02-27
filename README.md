@@ -34,4 +34,16 @@ Map Type - https://www.w3schools.com/graphics/google_maps_types.asp
 
 Markers - https://developers.google.com/maps/documentation/javascript/
 
-Udacity FEND Course: Advanced Interactive Websites: Lessons 14 and 17
+Model View Controller - https://alexatnet.com/model-view-controller-mvc-in-javascript/
+
+Projects implementing jQuery and Knockout
+
+https://github.com/billh93/neighborhood-map-udacity
+https://github.com/eferdman/Knockout-Neighborhood-Map
+https://github.com/lastres0rt/udacity-neighborhood-map-project
+https://github.com/nelgucci/Udacity-neighborhood-map
+https://github.com/otsop110/neighbourhood-map
+
+Udacity FEND Course: Advanced Interactive Websites Videos
+
+Use Strict - https://www.w3schools.com/js/js_strict.asp
